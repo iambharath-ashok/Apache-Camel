@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camel="http://camel.apache.org/schema/spring"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+          http://www.springframework.org/schema/beans/spring-beans-4.2.xsd  
+          http://camel.apache.org/schema/spring 
+          http://camel.apache.org/schema/spring/camel-spring.xsd
+          http://www.springframework.org/schema/util 
+          http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+
+	<camel:camelContext>
+		<camel:route>
+			<camel:from
+				uri="file:data/input?initialDelay=1000&amp;
+				delay=1000&amp;useFixedDelay=true&amp;runLoggingLevel=TRACE&amp;
+				startingDirectoryMustExist=true&amp;autoCreate=true&amp;
+				maxMessagesPerPoll=1&amp;eagerMaxMessagesPerPoll=true&amp;delete=false&amp;
+				readLockLoggingLevel=OFF&amp;readLockRemoveOnRollback=false&amp;readLockRemoveOnCommit=false&amp;idempotent=true&amp;
+				recursive=false">
+			</camel:from>
+			<camel:to uri="direct:execbash">
+			</camel:to>
+		</camel:route>
+		<camel:route>
+			<camel:from uri="direct:execbash">
+			</camel:from>
+			<camel:recipientList>
+				<camel:simple>exec:bash?args=mnftpscript.sh ${headers.CamelFilePath}</camel:simple>
+			</camel:recipientList>
+			<!-- <camel:setHeader headerName="REROUTE_FTP_EXIT_STATUS">${heasder.}</camel:setHeader> -->
+			<camel:to uri="log:?level=INFO&amp;showAll=true&amp;multiline=true"></camel:to>
+			<!-- <camel:to
+				uri="exec:bash?args=mnftpscript.sh ${header.MAINFRAME_FTP_FILE}" /> -->
+			<camel:to uri="log:?level=INFO&amp;showAll=true&amp;multiline=true"></camel:to>
+		</camel:route>
+	</camel:camelContext>
+</beans>

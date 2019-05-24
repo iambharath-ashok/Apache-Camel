@@ -1,0 +1,413 @@
+2019-05-23 14:18:46,480 | INFO | AbstractApplicationContext.java 578 | Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@726f3b58: startup date [Thu May 23 14:18:46 IST 2019]; root of context hierarchy
+2019-05-23 14:18:46,550 | INFO | XmlBeanDefinitionReader.java 317 | Loading XML bean definitions from class path resource [spring-camelcontext.xml]
+2019-05-23 14:18:49,316 | INFO | DefaultCamelContext.java 2763 | Apache Camel 2.16.1 (CamelContext: camel-1) is starting
+2019-05-23 14:18:49,318 | INFO | ManagedManagementStrategy.java 191 | JMX is enabled
+2019-05-23 14:18:49,797 | INFO | DefaultTypeConverter.java 56 | Loaded 187 type converters
+2019-05-23 14:18:49,855 | INFO | DefaultRuntimeEndpointRegistry.java 203 | Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2019-05-23 14:18:50,258 | INFO | DefaultCamelContext.java 2996 | AllowUseOriginalMessage is enabled. If access to the original message is not needed, then its recommended to turn this option off as it may improve performance.
+2019-05-23 14:18:50,259 | INFO | DefaultCamelContext.java 3006 | StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2019-05-23 14:18:50,267 | INFO | FileEndpoint.java 93 | Using default memory based idempotent repository with cache max size: 1000
+2019-05-23 14:18:50,389 | INFO | DefaultCamelContext.java 3527 | Route: route1 started and consuming from: Endpoint[file://data/input?autoCreate=true&delay=1000&delete=false&eagerMaxMessagesPerPoll=true&idempotent=true&initialDelay=1000&maxMessagesPerPoll=1&readLockLoggingLevel=OFF&readLockRemoveOnCommit=false&readLockRemoveOnRollback=false&recursive=false&runLoggingLevel=TRACE&startingDirectoryMustExist=true&useFixedDelay=true]
+2019-05-23 14:18:50,394 | INFO | DefaultCamelContext.java 3527 | Route: route2 started and consuming from: Endpoint[direct://execbash]
+2019-05-23 14:18:50,395 | INFO | DefaultCamelContext.java 2798 | Total 2 routes, of which 2 is started.
+2019-05-23 14:18:50,399 | INFO | DefaultCamelContext.java 2799 | Apache Camel 2.16.1 (CamelContext: camel-1) started in 1.081 seconds
+2019-05-23 14:19:36,599 | ERROR | MarkerIgnoringBase.java 143 | FILE PATH C:\\Projects\\EPWF\\workspaces\\workspace\\EPWF-GRADLE\\build.xml
+2019-05-23 14:19:36,615 | INFO | MarkerIgnoringBase.java 95 | Exchange[
+, Id: ID-CNU243BN8S-49922-1558601329087-0-2
+, ExchangePattern: InOnly
+, Properties: {C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt-CamelFileLockFileAcquired=true, C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt-CamelFileLockFileName=C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt.camelLock, CamelBatchComplete=true, CamelBatchIndex=0, CamelBatchSize=1, CamelCreatedTimestamp=Thu May 23 14:19:36 IST 2019, CamelFileExchangeFile=GenericFile[XCASHPostingRequest20190513_174000.txt], CamelMessageHistory=[DefaultMessageHistory[routeId=route1, node=to1], DefaultMessageHistory[routeId=route2, node=setHeader1], DefaultMessageHistory[routeId=route2, node=log1], DefaultMessageHistory[routeId=route2, node=to2]], CamelToEndpoint=log://?level=INFO&multiline=true&showAll=true}
+, Headers: {breadcrumbId=ID-CNU243BN8S-49922-1558601329087-0-1, CamelFileAbsolute=false, CamelFileAbsolutePath=C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt, CamelFileContentType=text/plain, CamelFileLastModified=1558601375892, CamelFileLength=1081, CamelFileName=XCASHPostingRequest20190513_174000.txt, CamelFileNameConsumed=XCASHPostingRequest20190513_174000.txt, CamelFileNameOnly=XCASHPostingRequest20190513_174000.txt, CamelFileParent=data\input, CamelFilePath=data\input\XCASHPostingRequest20190513_174000.txt, CamelFileRelativePath=XCASHPostingRequest20190513_174000.txt, MAINFRAME_FTP_FILE=C:\\Projects\\EPWF\\workspaces\\workspace\\EPWF-GRADLE\\build.xml}
+, BodyType: org.apache.camel.component.file.GenericFile
+, Body: [Body is file based: GenericFile[XCASHPostingRequest20190513_174000.txt]]
+, Out: null: 
+]
+2019-05-23 14:19:36,628 | INFO | ExecProducer.java 52 | Executing ExecCommand [args=[mnftpscript.sh, ${header.MAINFRAME_FTP_FILE}], executable=chmod, timeout=9223372036854775807, outFile=null, workingDir=null, useStderrOnEmptyStdout=false]
+2019-05-23 14:19:36,686 | ERROR | DefaultExecCommandExecutor.java 101 | IOException while executing command: ExecCommand [args=[mnftpscript.sh, ${header.MAINFRAME_FTP_FILE}], executable=chmod, timeout=9223372036854775807, outFile=null, workingDir=null, useStderrOnEmptyStdout=false] - Cannot run program "chmod" (in directory "."): CreateProcess error=2, The system cannot find the file specified
+2019-05-23 14:19:36,727 | ERROR | MarkerIgnoringBase.java 159 | Failed delivery for (MessageId: ID-CNU243BN8S-49922-1558601329087-0-1 on ExchangeId: ID-CNU243BN8S-49922-1558601329087-0-2). Exhausted after delivery attempt: 1 caught: org.apache.camel.component.exec.ExecException: Unable to execute command ExecCommand [args=[mnftpscript.sh, ${header.MAINFRAME_FTP_FILE}], executable=chmod, timeout=9223372036854775807, outFile=null, workingDir=null, useStderrOnEmptyStdout=false]
+
+Message History
+---------------------------------------------------------------------------------------------------------------------------------------
+RouteId              ProcessorId          Processor                                                                        Elapsed (ms)
+[route1            ] [route1            ] [file://data/input?autoCreate=true&delay=1000&delete=false&eagerMaxMessagesPerP] [       155]
+[route1            ] [to1               ] [direct:execbash                                                               ] [       139]
+[route2            ] [setHeader1        ] [setHeader[MAINFRAME_FTP_FILE]                                                 ] [         9]
+[route2            ] [log1              ] [log                                                                           ] [         2]
+[route2            ] [to2               ] [log:?level=INFO&showAll=true&multiline=true                                   ] [        16]
+[route2            ] [to3               ] [exec:chmod?args=mnftpscript.sh ${header.MAINFRAME_FTP_FILE}                   ] [        89]
+
+Exchange
+---------------------------------------------------------------------------------------------------------------------------------------
+Exchange[
+	Id                  ID-CNU243BN8S-49922-1558601329087-0-2
+	ExchangePattern     InOnly
+	Headers             {breadcrumbId=ID-CNU243BN8S-49922-1558601329087-0-1, CamelFileAbsolute=false, CamelFileAbsolutePath=C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt, CamelFileContentType=text/plain, CamelFileLastModified=1558601375892, CamelFileLength=1081, CamelFileName=XCASHPostingRequest20190513_174000.txt, CamelFileNameConsumed=XCASHPostingRequest20190513_174000.txt, CamelFileNameOnly=XCASHPostingRequest20190513_174000.txt, CamelFileParent=data\input, CamelFilePath=data\input\XCASHPostingRequest20190513_174000.txt, CamelFileRelativePath=XCASHPostingRequest20190513_174000.txt, CamelRedelivered=false, CamelRedeliveryCounter=0, MAINFRAME_FTP_FILE=C:\\Projects\\EPWF\\workspaces\\workspace\\EPWF-GRADLE\\build.xml}
+	BodyType            org.apache.camel.component.file.GenericFile
+	Body                [Body is file based: GenericFile[XCASHPostingRequest20190513_174000.txt]]
+]
+
+Stacktrace
+---------------------------------------------------------------------------------------------------------------------------------------
+org.apache.camel.component.exec.ExecException: Unable to execute command ExecCommand [args=[mnftpscript.sh, ${header.MAINFRAME_FTP_FILE}], executable=chmod, timeout=9223372036854775807, outFile=null, workingDir=null, useStderrOnEmptyStdout=false]
+	at org.apache.camel.component.exec.impl.DefaultExecCommandExecutor.execute(DefaultExecCommandExecutor.java:102)
+	at org.apache.camel.component.exec.ExecProducer.process(ExecProducer.java:53)
+	at org.apache.camel.util.AsyncProcessorConverterHelper$ProcessorToAsyncProcessorBridge.process(AsyncProcessorConverterHelper.java:61)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:141)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:460)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:190)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:121)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:190)
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:62)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:141)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:460)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:190)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:190)
+	at org.apache.camel.component.file.GenericFileConsumer.processExchange(GenericFileConsumer.java:442)
+	at org.apache.camel.component.file.GenericFileConsumer.processBatch(GenericFileConsumer.java:214)
+	at org.apache.camel.component.file.GenericFileConsumer.poll(GenericFileConsumer.java:178)
+	at org.apache.camel.impl.ScheduledPollConsumer.doRun(ScheduledPollConsumer.java:174)
+	at org.apache.camel.impl.ScheduledPollConsumer.run(ScheduledPollConsumer.java:101)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.io.IOException: Cannot run program "chmod" (in directory "."): CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at org.apache.commons.exec.launcher.Java13CommandLauncher.exec(Java13CommandLauncher.java:61)
+	at org.apache.commons.exec.DefaultExecutor.launch(DefaultExecutor.java:279)
+	at org.apache.camel.component.exec.ExecDefaultExecutor.launch(ExecDefaultExecutor.java:35)
+	at org.apache.commons.exec.DefaultExecutor.executeInternal(DefaultExecutor.java:336)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:166)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:153)
+	at org.apache.camel.component.exec.impl.DefaultExecCommandExecutor.execute(DefaultExecCommandExecutor.java:69)
+	... 27 more
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	... 35 more
+2019-05-23 14:19:36,745 | WARN | GenericFileOnCompletion.java 144 | Rollback file strategy: org.apache.camel.component.file.strategy.GenericFileRenameProcessStrategy@123922c1 for file: GenericFile[XCASHPostingRequest20190513_174000.txt]
+2019-05-23 14:19:37,756 | ERROR | MarkerIgnoringBase.java 143 | FILE PATH C:\\Projects\\EPWF\\workspaces\\workspace\\EPWF-GRADLE\\build.xml
+2019-05-23 14:19:37,757 | INFO | MarkerIgnoringBase.java 95 | Exchange[
+, Id: ID-CNU243BN8S-49922-1558601329087-0-4
+, ExchangePattern: InOnly
+, Properties: {C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt-CamelFileLockFileAcquired=true, C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt-CamelFileLockFileName=C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt.camelLock, CamelBatchComplete=true, CamelBatchIndex=0, CamelBatchSize=1, CamelCreatedTimestamp=Thu May 23 14:19:37 IST 2019, CamelFileExchangeFile=GenericFile[XCASHPostingRequest20190513_174000.txt], CamelMessageHistory=[DefaultMessageHistory[routeId=route1, node=to1], DefaultMessageHistory[routeId=route2, node=setHeader1], DefaultMessageHistory[routeId=route2, node=log1], DefaultMessageHistory[routeId=route2, node=to2]], CamelToEndpoint=log://?level=INFO&multiline=true&showAll=true}
+, Headers: {breadcrumbId=ID-CNU243BN8S-49922-1558601329087-0-3, CamelFileAbsolute=false, CamelFileAbsolutePath=C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt, CamelFileContentType=text/plain, CamelFileLastModified=1558601375892, CamelFileLength=1081, CamelFileName=XCASHPostingRequest20190513_174000.txt, CamelFileNameConsumed=XCASHPostingRequest20190513_174000.txt, CamelFileNameOnly=XCASHPostingRequest20190513_174000.txt, CamelFileParent=data\input, CamelFilePath=data\input\XCASHPostingRequest20190513_174000.txt, CamelFileRelativePath=XCASHPostingRequest20190513_174000.txt, MAINFRAME_FTP_FILE=C:\\Projects\\EPWF\\workspaces\\workspace\\EPWF-GRADLE\\build.xml}
+, BodyType: org.apache.camel.component.file.GenericFile
+, Body: [Body is file based: GenericFile[XCASHPostingRequest20190513_174000.txt]]
+, Out: null: 
+]
+2019-05-23 14:19:37,760 | INFO | ExecProducer.java 52 | Executing ExecCommand [args=[mnftpscript.sh, ${header.MAINFRAME_FTP_FILE}], executable=chmod, timeout=9223372036854775807, outFile=null, workingDir=null, useStderrOnEmptyStdout=false]
+2019-05-23 14:19:37,776 | ERROR | DefaultExecCommandExecutor.java 101 | IOException while executing command: ExecCommand [args=[mnftpscript.sh, ${header.MAINFRAME_FTP_FILE}], executable=chmod, timeout=9223372036854775807, outFile=null, workingDir=null, useStderrOnEmptyStdout=false] - Cannot run program "chmod" (in directory "."): CreateProcess error=2, The system cannot find the file specified
+2019-05-23 14:19:37,780 | ERROR | MarkerIgnoringBase.java 159 | Failed delivery for (MessageId: ID-CNU243BN8S-49922-1558601329087-0-3 on ExchangeId: ID-CNU243BN8S-49922-1558601329087-0-4). Exhausted after delivery attempt: 1 caught: org.apache.camel.component.exec.ExecException: Unable to execute command ExecCommand [args=[mnftpscript.sh, ${header.MAINFRAME_FTP_FILE}], executable=chmod, timeout=9223372036854775807, outFile=null, workingDir=null, useStderrOnEmptyStdout=false]
+
+Message History
+---------------------------------------------------------------------------------------------------------------------------------------
+RouteId              ProcessorId          Processor                                                                        Elapsed (ms)
+[route1            ] [route1            ] [file://data/input?autoCreate=true&delay=1000&delete=false&eagerMaxMessagesPerP] [        23]
+[route1            ] [to1               ] [direct:execbash                                                               ] [        23]
+[route2            ] [setHeader1        ] [setHeader[MAINFRAME_FTP_FILE]                                                 ] [         0]
+[route2            ] [log1              ] [log                                                                           ] [         1]
+[route2            ] [to2               ] [log:?level=INFO&showAll=true&multiline=true                                   ] [         2]
+[route2            ] [to3               ] [exec:chmod?args=mnftpscript.sh ${header.MAINFRAME_FTP_FILE}                   ] [        18]
+
+Exchange
+---------------------------------------------------------------------------------------------------------------------------------------
+Exchange[
+	Id                  ID-CNU243BN8S-49922-1558601329087-0-4
+	ExchangePattern     InOnly
+	Headers             {breadcrumbId=ID-CNU243BN8S-49922-1558601329087-0-3, CamelFileAbsolute=false, CamelFileAbsolutePath=C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt, CamelFileContentType=text/plain, CamelFileLastModified=1558601375892, CamelFileLength=1081, CamelFileName=XCASHPostingRequest20190513_174000.txt, CamelFileNameConsumed=XCASHPostingRequest20190513_174000.txt, CamelFileNameOnly=XCASHPostingRequest20190513_174000.txt, CamelFileParent=data\input, CamelFilePath=data\input\XCASHPostingRequest20190513_174000.txt, CamelFileRelativePath=XCASHPostingRequest20190513_174000.txt, CamelRedelivered=false, CamelRedeliveryCounter=0, MAINFRAME_FTP_FILE=C:\\Projects\\EPWF\\workspaces\\workspace\\EPWF-GRADLE\\build.xml}
+	BodyType            org.apache.camel.component.file.GenericFile
+	Body                [Body is file based: GenericFile[XCASHPostingRequest20190513_174000.txt]]
+]
+
+Stacktrace
+---------------------------------------------------------------------------------------------------------------------------------------
+org.apache.camel.component.exec.ExecException: Unable to execute command ExecCommand [args=[mnftpscript.sh, ${header.MAINFRAME_FTP_FILE}], executable=chmod, timeout=9223372036854775807, outFile=null, workingDir=null, useStderrOnEmptyStdout=false]
+	at org.apache.camel.component.exec.impl.DefaultExecCommandExecutor.execute(DefaultExecCommandExecutor.java:102)
+	at org.apache.camel.component.exec.ExecProducer.process(ExecProducer.java:53)
+	at org.apache.camel.util.AsyncProcessorConverterHelper$ProcessorToAsyncProcessorBridge.process(AsyncProcessorConverterHelper.java:61)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:141)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:460)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:190)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:121)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:190)
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:62)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:141)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:460)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:190)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:190)
+	at org.apache.camel.component.file.GenericFileConsumer.processExchange(GenericFileConsumer.java:442)
+	at org.apache.camel.component.file.GenericFileConsumer.processBatch(GenericFileConsumer.java:214)
+	at org.apache.camel.component.file.GenericFileConsumer.poll(GenericFileConsumer.java:178)
+	at org.apache.camel.impl.ScheduledPollConsumer.doRun(ScheduledPollConsumer.java:174)
+	at org.apache.camel.impl.ScheduledPollConsumer.run(ScheduledPollConsumer.java:101)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.io.IOException: Cannot run program "chmod" (in directory "."): CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at org.apache.commons.exec.launcher.Java13CommandLauncher.exec(Java13CommandLauncher.java:61)
+	at org.apache.commons.exec.DefaultExecutor.launch(DefaultExecutor.java:279)
+	at org.apache.camel.component.exec.ExecDefaultExecutor.launch(ExecDefaultExecutor.java:35)
+	at org.apache.commons.exec.DefaultExecutor.executeInternal(DefaultExecutor.java:336)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:166)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:153)
+	at org.apache.camel.component.exec.impl.DefaultExecCommandExecutor.execute(DefaultExecCommandExecutor.java:69)
+	... 27 more
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	... 35 more
+2019-05-23 14:19:37,782 | WARN | GenericFileOnCompletion.java 144 | Rollback file strategy: org.apache.camel.component.file.strategy.GenericFileRenameProcessStrategy@123922c1 for file: GenericFile[XCASHPostingRequest20190513_174000.txt]
+2019-05-23 14:19:38,790 | ERROR | MarkerIgnoringBase.java 143 | FILE PATH C:\\Projects\\EPWF\\workspaces\\workspace\\EPWF-GRADLE\\build.xml
+2019-05-23 14:19:38,792 | INFO | MarkerIgnoringBase.java 95 | Exchange[
+, Id: ID-CNU243BN8S-49922-1558601329087-0-6
+, ExchangePattern: InOnly
+, Properties: {C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt-CamelFileLockFileAcquired=true, C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt-CamelFileLockFileName=C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt.camelLock, CamelBatchComplete=true, CamelBatchIndex=0, CamelBatchSize=1, CamelCreatedTimestamp=Thu May 23 14:19:38 IST 2019, CamelFileExchangeFile=GenericFile[XCASHPostingRequest20190513_174000.txt], CamelMessageHistory=[DefaultMessageHistory[routeId=route1, node=to1], DefaultMessageHistory[routeId=route2, node=setHeader1], DefaultMessageHistory[routeId=route2, node=log1], DefaultMessageHistory[routeId=route2, node=to2]], CamelToEndpoint=log://?level=INFO&multiline=true&showAll=true}
+, Headers: {breadcrumbId=ID-CNU243BN8S-49922-1558601329087-0-5, CamelFileAbsolute=false, CamelFileAbsolutePath=C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt, CamelFileContentType=text/plain, CamelFileLastModified=1558601375892, CamelFileLength=1081, CamelFileName=XCASHPostingRequest20190513_174000.txt, CamelFileNameConsumed=XCASHPostingRequest20190513_174000.txt, CamelFileNameOnly=XCASHPostingRequest20190513_174000.txt, CamelFileParent=data\input, CamelFilePath=data\input\XCASHPostingRequest20190513_174000.txt, CamelFileRelativePath=XCASHPostingRequest20190513_174000.txt, MAINFRAME_FTP_FILE=C:\\Projects\\EPWF\\workspaces\\workspace\\EPWF-GRADLE\\build.xml}
+, BodyType: org.apache.camel.component.file.GenericFile
+, Body: [Body is file based: GenericFile[XCASHPostingRequest20190513_174000.txt]]
+, Out: null: 
+]
+2019-05-23 14:19:38,793 | INFO | ExecProducer.java 52 | Executing ExecCommand [args=[mnftpscript.sh, ${header.MAINFRAME_FTP_FILE}], executable=chmod, timeout=9223372036854775807, outFile=null, workingDir=null, useStderrOnEmptyStdout=false]
+2019-05-23 14:19:38,808 | ERROR | DefaultExecCommandExecutor.java 101 | IOException while executing command: ExecCommand [args=[mnftpscript.sh, ${header.MAINFRAME_FTP_FILE}], executable=chmod, timeout=9223372036854775807, outFile=null, workingDir=null, useStderrOnEmptyStdout=false] - Cannot run program "chmod" (in directory "."): CreateProcess error=2, The system cannot find the file specified
+2019-05-23 14:19:38,813 | ERROR | MarkerIgnoringBase.java 159 | Failed delivery for (MessageId: ID-CNU243BN8S-49922-1558601329087-0-5 on ExchangeId: ID-CNU243BN8S-49922-1558601329087-0-6). Exhausted after delivery attempt: 1 caught: org.apache.camel.component.exec.ExecException: Unable to execute command ExecCommand [args=[mnftpscript.sh, ${header.MAINFRAME_FTP_FILE}], executable=chmod, timeout=9223372036854775807, outFile=null, workingDir=null, useStderrOnEmptyStdout=false]
+
+Message History
+---------------------------------------------------------------------------------------------------------------------------------------
+RouteId              ProcessorId          Processor                                                                        Elapsed (ms)
+[route1            ] [route1            ] [file://data/input?autoCreate=true&delay=1000&delete=false&eagerMaxMessagesPerP] [        22]
+[route1            ] [to1               ] [direct:execbash                                                               ] [        22]
+[route2            ] [setHeader1        ] [setHeader[MAINFRAME_FTP_FILE]                                                 ] [         0]
+[route2            ] [log1              ] [log                                                                           ] [         1]
+[route2            ] [to2               ] [log:?level=INFO&showAll=true&multiline=true                                   ] [         1]
+[route2            ] [to3               ] [exec:chmod?args=mnftpscript.sh ${header.MAINFRAME_FTP_FILE}                   ] [        17]
+
+Exchange
+---------------------------------------------------------------------------------------------------------------------------------------
+Exchange[
+	Id                  ID-CNU243BN8S-49922-1558601329087-0-6
+	ExchangePattern     InOnly
+	Headers             {breadcrumbId=ID-CNU243BN8S-49922-1558601329087-0-5, CamelFileAbsolute=false, CamelFileAbsolutePath=C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt, CamelFileContentType=text/plain, CamelFileLastModified=1558601375892, CamelFileLength=1081, CamelFileName=XCASHPostingRequest20190513_174000.txt, CamelFileNameConsumed=XCASHPostingRequest20190513_174000.txt, CamelFileNameOnly=XCASHPostingRequest20190513_174000.txt, CamelFileParent=data\input, CamelFilePath=data\input\XCASHPostingRequest20190513_174000.txt, CamelFileRelativePath=XCASHPostingRequest20190513_174000.txt, CamelRedelivered=false, CamelRedeliveryCounter=0, MAINFRAME_FTP_FILE=C:\\Projects\\EPWF\\workspaces\\workspace\\EPWF-GRADLE\\build.xml}
+	BodyType            org.apache.camel.component.file.GenericFile
+	Body                [Body is file based: GenericFile[XCASHPostingRequest20190513_174000.txt]]
+]
+
+Stacktrace
+---------------------------------------------------------------------------------------------------------------------------------------
+org.apache.camel.component.exec.ExecException: Unable to execute command ExecCommand [args=[mnftpscript.sh, ${header.MAINFRAME_FTP_FILE}], executable=chmod, timeout=9223372036854775807, outFile=null, workingDir=null, useStderrOnEmptyStdout=false]
+	at org.apache.camel.component.exec.impl.DefaultExecCommandExecutor.execute(DefaultExecCommandExecutor.java:102)
+	at org.apache.camel.component.exec.ExecProducer.process(ExecProducer.java:53)
+	at org.apache.camel.util.AsyncProcessorConverterHelper$ProcessorToAsyncProcessorBridge.process(AsyncProcessorConverterHelper.java:61)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:141)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:460)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:190)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:121)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:190)
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:62)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:141)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:460)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:190)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:190)
+	at org.apache.camel.component.file.GenericFileConsumer.processExchange(GenericFileConsumer.java:442)
+	at org.apache.camel.component.file.GenericFileConsumer.processBatch(GenericFileConsumer.java:214)
+	at org.apache.camel.component.file.GenericFileConsumer.poll(GenericFileConsumer.java:178)
+	at org.apache.camel.impl.ScheduledPollConsumer.doRun(ScheduledPollConsumer.java:174)
+	at org.apache.camel.impl.ScheduledPollConsumer.run(ScheduledPollConsumer.java:101)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.io.IOException: Cannot run program "chmod" (in directory "."): CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at org.apache.commons.exec.launcher.Java13CommandLauncher.exec(Java13CommandLauncher.java:61)
+	at org.apache.commons.exec.DefaultExecutor.launch(DefaultExecutor.java:279)
+	at org.apache.camel.component.exec.ExecDefaultExecutor.launch(ExecDefaultExecutor.java:35)
+	at org.apache.commons.exec.DefaultExecutor.executeInternal(DefaultExecutor.java:336)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:166)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:153)
+	at org.apache.camel.component.exec.impl.DefaultExecCommandExecutor.execute(DefaultExecCommandExecutor.java:69)
+	... 27 more
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	... 35 more
+2019-05-23 14:19:38,816 | WARN | GenericFileOnCompletion.java 144 | Rollback file strategy: org.apache.camel.component.file.strategy.GenericFileRenameProcessStrategy@123922c1 for file: GenericFile[XCASHPostingRequest20190513_174000.txt]
+2019-05-23 14:19:39,829 | ERROR | MarkerIgnoringBase.java 143 | FILE PATH C:\\Projects\\EPWF\\workspaces\\workspace\\EPWF-GRADLE\\build.xml
+2019-05-23 14:19:39,831 | INFO | MarkerIgnoringBase.java 95 | Exchange[
+, Id: ID-CNU243BN8S-49922-1558601329087-0-8
+, ExchangePattern: InOnly
+, Properties: {C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt-CamelFileLockFileAcquired=true, C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt-CamelFileLockFileName=C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt.camelLock, CamelBatchComplete=true, CamelBatchIndex=0, CamelBatchSize=1, CamelCreatedTimestamp=Thu May 23 14:19:39 IST 2019, CamelFileExchangeFile=GenericFile[XCASHPostingRequest20190513_174000.txt], CamelMessageHistory=[DefaultMessageHistory[routeId=route1, node=to1], DefaultMessageHistory[routeId=route2, node=setHeader1], DefaultMessageHistory[routeId=route2, node=log1], DefaultMessageHistory[routeId=route2, node=to2]], CamelToEndpoint=log://?level=INFO&multiline=true&showAll=true}
+, Headers: {breadcrumbId=ID-CNU243BN8S-49922-1558601329087-0-7, CamelFileAbsolute=false, CamelFileAbsolutePath=C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt, CamelFileContentType=text/plain, CamelFileLastModified=1558601375892, CamelFileLength=1081, CamelFileName=XCASHPostingRequest20190513_174000.txt, CamelFileNameConsumed=XCASHPostingRequest20190513_174000.txt, CamelFileNameOnly=XCASHPostingRequest20190513_174000.txt, CamelFileParent=data\input, CamelFilePath=data\input\XCASHPostingRequest20190513_174000.txt, CamelFileRelativePath=XCASHPostingRequest20190513_174000.txt, MAINFRAME_FTP_FILE=C:\\Projects\\EPWF\\workspaces\\workspace\\EPWF-GRADLE\\build.xml}
+, BodyType: org.apache.camel.component.file.GenericFile
+, Body: [Body is file based: GenericFile[XCASHPostingRequest20190513_174000.txt]]
+, Out: null: 
+]
+2019-05-23 14:19:39,833 | INFO | ExecProducer.java 52 | Executing ExecCommand [args=[mnftpscript.sh, ${header.MAINFRAME_FTP_FILE}], executable=chmod, timeout=9223372036854775807, outFile=null, workingDir=null, useStderrOnEmptyStdout=false]
+2019-05-23 14:19:39,846 | ERROR | DefaultExecCommandExecutor.java 101 | IOException while executing command: ExecCommand [args=[mnftpscript.sh, ${header.MAINFRAME_FTP_FILE}], executable=chmod, timeout=9223372036854775807, outFile=null, workingDir=null, useStderrOnEmptyStdout=false] - Cannot run program "chmod" (in directory "."): CreateProcess error=2, The system cannot find the file specified
+2019-05-23 14:19:39,850 | ERROR | MarkerIgnoringBase.java 159 | Failed delivery for (MessageId: ID-CNU243BN8S-49922-1558601329087-0-7 on ExchangeId: ID-CNU243BN8S-49922-1558601329087-0-8). Exhausted after delivery attempt: 1 caught: org.apache.camel.component.exec.ExecException: Unable to execute command ExecCommand [args=[mnftpscript.sh, ${header.MAINFRAME_FTP_FILE}], executable=chmod, timeout=9223372036854775807, outFile=null, workingDir=null, useStderrOnEmptyStdout=false]
+
+Message History
+---------------------------------------------------------------------------------------------------------------------------------------
+RouteId              ProcessorId          Processor                                                                        Elapsed (ms)
+[route1            ] [route1            ] [file://data/input?autoCreate=true&delay=1000&delete=false&eagerMaxMessagesPerP] [        20]
+[route1            ] [to1               ] [direct:execbash                                                               ] [        20]
+[route2            ] [setHeader1        ] [setHeader[MAINFRAME_FTP_FILE]                                                 ] [         0]
+[route2            ] [log1              ] [log                                                                           ] [         1]
+[route2            ] [to2               ] [log:?level=INFO&showAll=true&multiline=true                                   ] [         1]
+[route2            ] [to3               ] [exec:chmod?args=mnftpscript.sh ${header.MAINFRAME_FTP_FILE}                   ] [        15]
+
+Exchange
+---------------------------------------------------------------------------------------------------------------------------------------
+Exchange[
+	Id                  ID-CNU243BN8S-49922-1558601329087-0-8
+	ExchangePattern     InOnly
+	Headers             {breadcrumbId=ID-CNU243BN8S-49922-1558601329087-0-7, CamelFileAbsolute=false, CamelFileAbsolutePath=C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt, CamelFileContentType=text/plain, CamelFileLastModified=1558601375892, CamelFileLength=1081, CamelFileName=XCASHPostingRequest20190513_174000.txt, CamelFileNameConsumed=XCASHPostingRequest20190513_174000.txt, CamelFileNameOnly=XCASHPostingRequest20190513_174000.txt, CamelFileParent=data\input, CamelFilePath=data\input\XCASHPostingRequest20190513_174000.txt, CamelFileRelativePath=XCASHPostingRequest20190513_174000.txt, CamelRedelivered=false, CamelRedeliveryCounter=0, MAINFRAME_FTP_FILE=C:\\Projects\\EPWF\\workspaces\\workspace\\EPWF-GRADLE\\build.xml}
+	BodyType            org.apache.camel.component.file.GenericFile
+	Body                [Body is file based: GenericFile[XCASHPostingRequest20190513_174000.txt]]
+]
+
+Stacktrace
+---------------------------------------------------------------------------------------------------------------------------------------
+org.apache.camel.component.exec.ExecException: Unable to execute command ExecCommand [args=[mnftpscript.sh, ${header.MAINFRAME_FTP_FILE}], executable=chmod, timeout=9223372036854775807, outFile=null, workingDir=null, useStderrOnEmptyStdout=false]
+	at org.apache.camel.component.exec.impl.DefaultExecCommandExecutor.execute(DefaultExecCommandExecutor.java:102)
+	at org.apache.camel.component.exec.ExecProducer.process(ExecProducer.java:53)
+	at org.apache.camel.util.AsyncProcessorConverterHelper$ProcessorToAsyncProcessorBridge.process(AsyncProcessorConverterHelper.java:61)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:141)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:460)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:190)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:121)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:190)
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:62)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:141)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:460)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:190)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:190)
+	at org.apache.camel.component.file.GenericFileConsumer.processExchange(GenericFileConsumer.java:442)
+	at org.apache.camel.component.file.GenericFileConsumer.processBatch(GenericFileConsumer.java:214)
+	at org.apache.camel.component.file.GenericFileConsumer.poll(GenericFileConsumer.java:178)
+	at org.apache.camel.impl.ScheduledPollConsumer.doRun(ScheduledPollConsumer.java:174)
+	at org.apache.camel.impl.ScheduledPollConsumer.run(ScheduledPollConsumer.java:101)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.io.IOException: Cannot run program "chmod" (in directory "."): CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at org.apache.commons.exec.launcher.Java13CommandLauncher.exec(Java13CommandLauncher.java:61)
+	at org.apache.commons.exec.DefaultExecutor.launch(DefaultExecutor.java:279)
+	at org.apache.camel.component.exec.ExecDefaultExecutor.launch(ExecDefaultExecutor.java:35)
+	at org.apache.commons.exec.DefaultExecutor.executeInternal(DefaultExecutor.java:336)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:166)
+	at org.apache.commons.exec.DefaultExecutor.execute(DefaultExecutor.java:153)
+	at org.apache.camel.component.exec.impl.DefaultExecCommandExecutor.execute(DefaultExecCommandExecutor.java:69)
+	... 27 more
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	... 35 more
+2019-05-23 14:19:39,853 | WARN | GenericFileOnCompletion.java 144 | Rollback file strategy: org.apache.camel.component.file.strategy.GenericFileRenameProcessStrategy@123922c1 for file: GenericFile[XCASHPostingRequest20190513_174000.txt]
+2019-05-23 14:19:40,405 | INFO | DefaultCamelContext.java 3023 | Apache Camel 2.16.1 (CamelContext: camel-1) is shutting down
+2019-05-23 14:19:40,407 | INFO | DefaultShutdownStrategy.java 195 | Starting to graceful shutdown 2 routes (timeout 300 seconds)
+2019-05-23 14:19:40,413 | INFO | DefaultShutdownStrategy.java 668 | Route: route2 shutdown complete, was consuming from: Endpoint[direct://execbash]
+2019-05-23 14:19:40,416 | INFO | DefaultShutdownStrategy.java 668 | Route: route1 shutdown complete, was consuming from: Endpoint[file://data/input?autoCreate=true&delay=1000&delete=false&eagerMaxMessagesPerPoll=true&idempotent=true&initialDelay=1000&maxMessagesPerPoll=1&readLockLoggingLevel=OFF&readLockRemoveOnCommit=false&readLockRemoveOnRollback=false&recursive=false&runLoggingLevel=TRACE&startingDirectoryMustExist=true&useFixedDelay=true]
+2019-05-23 14:19:40,416 | INFO | DefaultShutdownStrategy.java 259 | Graceful shutdown of 2 routes completed in 0 seconds
+2019-05-23 14:19:40,426 | INFO | DefaultCamelContext.java 3108 | Apache Camel 2.16.1 (CamelContext: camel-1) uptime 51.112 seconds
+2019-05-23 14:19:40,427 | INFO | DefaultCamelContext.java 3109 | Apache Camel 2.16.1 (CamelContext: camel-1) is shutdown in 0.021 seconds
+2019-05-23 14:19:40,427 | INFO | AbstractApplicationContext.java 960 | Closing org.springframework.context.support.ClassPathXmlApplicationContext@726f3b58: startup date [Thu May 23 14:18:46 IST 2019]; root of context hierarchy
+2019-05-23 14:20:26,379 | INFO | AbstractApplicationContext.java 578 | Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@726f3b58: startup date [Thu May 23 14:20:26 IST 2019]; root of context hierarchy
+2019-05-23 14:20:26,444 | INFO | XmlBeanDefinitionReader.java 317 | Loading XML bean definitions from class path resource [spring-camelcontext.xml]
+2019-05-23 14:20:28,598 | INFO | DefaultCamelContext.java 2763 | Apache Camel 2.16.1 (CamelContext: camel-1) is starting
+2019-05-23 14:20:28,600 | INFO | ManagedManagementStrategy.java 191 | JMX is enabled
+2019-05-23 14:20:28,945 | INFO | DefaultTypeConverter.java 56 | Loaded 187 type converters
+2019-05-23 14:20:29,010 | INFO | DefaultRuntimeEndpointRegistry.java 203 | Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2019-05-23 14:20:29,510 | INFO | DefaultCamelContext.java 2996 | AllowUseOriginalMessage is enabled. If access to the original message is not needed, then its recommended to turn this option off as it may improve performance.
+2019-05-23 14:20:29,511 | INFO | DefaultCamelContext.java 3006 | StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2019-05-23 14:20:29,523 | INFO | FileEndpoint.java 93 | Using default memory based idempotent repository with cache max size: 1000
+2019-05-23 14:20:29,719 | INFO | DefaultCamelContext.java 3527 | Route: route1 started and consuming from: Endpoint[file://data/input?autoCreate=true&delay=1000&delete=false&eagerMaxMessagesPerPoll=true&idempotent=true&initialDelay=1000&maxMessagesPerPoll=1&readLockLoggingLevel=OFF&readLockRemoveOnCommit=false&readLockRemoveOnRollback=false&recursive=false&runLoggingLevel=TRACE&startingDirectoryMustExist=true&useFixedDelay=true]
+2019-05-23 14:20:29,726 | INFO | DefaultCamelContext.java 3527 | Route: route2 started and consuming from: Endpoint[direct://execbash]
+2019-05-23 14:20:29,728 | INFO | DefaultCamelContext.java 2798 | Total 2 routes, of which 2 is started.
+2019-05-23 14:20:29,735 | INFO | DefaultCamelContext.java 2799 | Apache Camel 2.16.1 (CamelContext: camel-1) started in 1.132 seconds
+2019-05-23 14:20:30,742 | ERROR | MarkerIgnoringBase.java 143 | FILE PATH C:\\Projects\\EPWF\\workspaces\\workspace\\EPWF-GRADLE\\build.xml
+2019-05-23 14:20:30,746 | INFO | MarkerIgnoringBase.java 95 | Exchange[
+, Id: ID-CNU243BN8S-49927-1558601428403-0-2
+, ExchangePattern: InOnly
+, Properties: {C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt-CamelFileLockFileAcquired=true, C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt-CamelFileLockFileName=C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt.camelLock, CamelBatchComplete=true, CamelBatchIndex=0, CamelBatchSize=1, CamelCreatedTimestamp=Thu May 23 14:20:30 IST 2019, CamelFileExchangeFile=GenericFile[XCASHPostingRequest20190513_174000.txt], CamelMessageHistory=[DefaultMessageHistory[routeId=route1, node=to1], DefaultMessageHistory[routeId=route2, node=setHeader1], DefaultMessageHistory[routeId=route2, node=log1], DefaultMessageHistory[routeId=route2, node=to2]], CamelToEndpoint=log://?level=INFO&multiline=true&showAll=true}
+, Headers: {breadcrumbId=ID-CNU243BN8S-49927-1558601428403-0-1, CamelFileAbsolute=false, CamelFileAbsolutePath=C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt, CamelFileContentType=text/plain, CamelFileLastModified=1558601375892, CamelFileLength=1081, CamelFileName=XCASHPostingRequest20190513_174000.txt, CamelFileNameConsumed=XCASHPostingRequest20190513_174000.txt, CamelFileNameOnly=XCASHPostingRequest20190513_174000.txt, CamelFileParent=data\input, CamelFilePath=data\input\XCASHPostingRequest20190513_174000.txt, CamelFileRelativePath=XCASHPostingRequest20190513_174000.txt, MAINFRAME_FTP_FILE=C:\\Projects\\EPWF\\workspaces\\workspace\\EPWF-GRADLE\\build.xml}
+, BodyType: org.apache.camel.component.file.GenericFile
+, Body: [Body is file based: GenericFile[XCASHPostingRequest20190513_174000.txt]]
+, Out: null: 
+]
+2019-05-23 14:20:30,754 | INFO | ExecProducer.java 52 | Executing ExecCommand [args=[mnftpscript.sh, ${header.MAINFRAME_FTP_FILE}], executable=bash, timeout=9223372036854775807, outFile=null, workingDir=null, useStderrOnEmptyStdout=false]
+2019-05-23 14:20:34,457 | INFO | ExecProducer.java 56 | The command ExecCommand [args=[mnftpscript.sh, ${header.MAINFRAME_FTP_FILE}], executable=bash, timeout=9223372036854775807, outFile=null, workingDir=null, useStderrOnEmptyStdout=false] had exit value 0
+2019-05-23 14:20:34,461 | INFO | MarkerIgnoringBase.java 95 | Exchange[
+, Id: ID-CNU243BN8S-49927-1558601428403-0-2
+, ExchangePattern: InOnly
+, Properties: {C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt-CamelFileLockFileAcquired=true, C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt-CamelFileLockFileName=C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt.camelLock, CamelBatchComplete=true, CamelBatchIndex=0, CamelBatchSize=1, CamelCreatedTimestamp=Thu May 23 14:20:30 IST 2019, CamelFileExchangeFile=GenericFile[XCASHPostingRequest20190513_174000.txt], CamelMessageHistory=[DefaultMessageHistory[routeId=route1, node=to1], DefaultMessageHistory[routeId=route2, node=setHeader1], DefaultMessageHistory[routeId=route2, node=log1], DefaultMessageHistory[routeId=route2, node=to2], DefaultMessageHistory[routeId=route2, node=to3], DefaultMessageHistory[routeId=route2, node=to4]], CamelToEndpoint=log://?level=INFO&multiline=true&showAll=true}
+, Headers: {breadcrumbId=ID-CNU243BN8S-49927-1558601428403-0-1, CamelExecExitValue=0, CamelExecStderr=java.io.ByteArrayInputStream@6d795af5, CamelFileAbsolute=false, CamelFileAbsolutePath=C:\Projects\EPWF\workspaces\workspace\Camel-Xml\data\input\XCASHPostingRequest20190513_174000.txt, CamelFileContentType=text/plain, CamelFileLastModified=1558601375892, CamelFileLength=1081, CamelFileName=XCASHPostingRequest20190513_174000.txt, CamelFileNameConsumed=XCASHPostingRequest20190513_174000.txt, CamelFileNameOnly=XCASHPostingRequest20190513_174000.txt, CamelFileParent=data\input, CamelFilePath=data\input\XCASHPostingRequest20190513_174000.txt, CamelFileRelativePath=XCASHPostingRequest20190513_174000.txt, MAINFRAME_FTP_FILE=C:\\Projects\\EPWF\\workspaces\\workspace\\EPWF-GRADLE\\build.xml}
+, BodyType: org.apache.camel.component.exec.ExecResult
+, Body: Starting XCASH FTP Script: Thu May 23 14:20:31 IST 2019
+File to be FTP: $header.MAINFRAME_FTP_FILE
+Exit Status of FTP: 0
+command OPTS aborted -- no options supported for UTF8Invalid command.$header.MAINFRAME_FTP_FILE: File not found 
+End of Script
+
+, Out: null: 
+]
+2019-05-23 14:21:19,753 | INFO | DefaultCamelContext.java 3023 | Apache Camel 2.16.1 (CamelContext: camel-1) is shutting down
+2019-05-23 14:21:19,756 | INFO | DefaultShutdownStrategy.java 195 | Starting to graceful shutdown 2 routes (timeout 300 seconds)
+2019-05-23 14:21:19,763 | INFO | DefaultShutdownStrategy.java 668 | Route: route2 shutdown complete, was consuming from: Endpoint[direct://execbash]
+2019-05-23 14:21:19,767 | INFO | DefaultShutdownStrategy.java 668 | Route: route1 shutdown complete, was consuming from: Endpoint[file://data/input?autoCreate=true&delay=1000&delete=false&eagerMaxMessagesPerPoll=true&idempotent=true&initialDelay=1000&maxMessagesPerPoll=1&readLockLoggingLevel=OFF&readLockRemoveOnCommit=false&readLockRemoveOnRollback=false&recursive=false&runLoggingLevel=TRACE&startingDirectoryMustExist=true&useFixedDelay=true]
+2019-05-23 14:21:19,768 | INFO | DefaultShutdownStrategy.java 259 | Graceful shutdown of 2 routes completed in 0 seconds
+2019-05-23 14:21:19,775 | INFO | DefaultCamelContext.java 3108 | Apache Camel 2.16.1 (CamelContext: camel-1) uptime 51.179 seconds
+2019-05-23 14:21:19,776 | INFO | DefaultCamelContext.java 3109 | Apache Camel 2.16.1 (CamelContext: camel-1) is shutdown in 0.022 seconds
+2019-05-23 14:21:19,777 | INFO | AbstractApplicationContext.java 960 | Closing org.springframework.context.support.ClassPathXmlApplicationContext@726f3b58: startup date [Thu May 23 14:20:26 IST 2019]; root of context hierarchy
+2019-05-23 14:31:58,228 | INFO | AbstractApplicationContext.java 578 | Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@726f3b58: startup date [Thu May 23 14:31:58 IST 2019]; root of context hierarchy
+2019-05-23 14:31:58,301 | INFO | XmlBeanDefinitionReader.java 317 | Loading XML bean definitions from class path resource [spring-camelcontext.xml]
+2019-05-23 14:32:00,962 | INFO | DefaultCamelContext.java 2763 | Apache Camel 2.16.1 (CamelContext: camel-1) is starting
+2019-05-23 14:32:00,964 | INFO | ManagedManagementStrategy.java 191 | JMX is enabled
+2019-05-23 14:32:01,364 | INFO | DefaultTypeConverter.java 56 | Loaded 187 type converters
+2019-05-23 14:32:01,464 | INFO | DefaultRuntimeEndpointRegistry.java 203 | Runtime endpoint registry is in extended mode gathering usage statistics of all incoming and outgoing endpoints (cache limit: 1000)
+2019-05-23 14:32:01,727 | INFO | DefaultCamelContext.java 2996 | AllowUseOriginalMessage is enabled. If access to the original message is not needed, then its recommended to turn this option off as it may improve performance.
+2019-05-23 14:32:01,728 | INFO | DefaultCamelContext.java 3006 | StreamCaching is not in use. If using streams then its recommended to enable stream caching. See more details at http://camel.apache.org/stream-caching.html
+2019-05-23 14:32:01,735 | INFO | FileEndpoint.java 93 | Using default memory based idempotent repository with cache max size: 1000
+2019-05-23 14:32:01,907 | INFO | DefaultCamelContext.java 3527 | Route: route1 started and consuming from: Endpoint[file://data/input?autoCreate=true&delay=1000&delete=false&eagerMaxMessagesPerPoll=true&idempotent=true&initialDelay=1000&maxMessagesPerPoll=1&readLockLoggingLevel=OFF&readLockRemoveOnCommit=false&readLockRemoveOnRollback=false&recursive=false&runLoggingLevel=TRACE&startingDirectoryMustExist=true&useFixedDelay=true]
+2019-05-23 14:32:01,910 | INFO | DefaultCamelContext.java 3527 | Route: route2 started and consuming from: Endpoint[direct://execbash]
+2019-05-23 14:32:01,913 | INFO | DefaultCamelContext.java 2798 | Total 2 routes, of which 2 is started.
+2019-05-23 14:32:01,921 | INFO | DefaultCamelContext.java 2799 | Apache Camel 2.16.1 (CamelContext: camel-1) started in 0.952 seconds

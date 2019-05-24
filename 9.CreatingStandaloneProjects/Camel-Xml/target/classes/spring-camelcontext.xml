@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camel="http://camel.apache.org/schema/spring"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+          http://www.springframework.org/schema/beans/spring-beans-4.2.xsd  
+          http://camel.apache.org/schema/spring 
+          http://camel.apache.org/schema/spring/camel-spring.xsd
+          http://www.springframework.org/schema/util 
+          http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+
+	<camel:camelContext>
+		<camel:route>
+			<camel:from
+				uri="file:data/input?initialDelay=1000&amp;
+				delay=1000&amp;useFixedDelay=true&amp;runLoggingLevel=TRACE&amp;
+				startingDirectoryMustExist=true&amp;autoCreate=true&amp;
+				maxMessagesPerPoll=1&amp;eagerMaxMessagesPerPoll=true&amp;delete=false&amp;
+				readLockLoggingLevel=OFF&amp;readLockRemoveOnRollback=false&amp;readLockRemoveOnCommit=false&amp;idempotent=true&amp;
+				recursive=false&amp;move=data/success&amp;moveFailed=data/failed">
+			</camel:from>
+			<camel:to uri="direct:execbash">
+			</camel:to>
+		</camel:route>
+		<camel:route>
+			<camel:from uri="direct:execbash">
+			</camel:from>
+			<camel:recipientList>
+				<camel:simple>exec:bash?args=mnftpscript.sh ${headers.CamelFilePath}</camel:simple>
+			</camel:recipientList>
+			<camel:to uri="log:?level=INFO&amp;showAll=true&amp;multiline=true"></camel:to>
+			<camel:setHeader headerName="REROUTE_FTP_RESULT">
+				<camel:simple>${body}.convertToString()</camel:simple>
+			</camel:setHeader>
+			<camel:to uri="log:?level=INFO&amp;showAll=true&amp;multiline=true"></camel:to>
+			<camel:choice>
+				<camel:when>
+					<camel:simple>${header.CamelExecExitValue} != 0</camel:simple>
+					<camel:throwException exceptionType="java.lang.RuntimeException"
+						message="Error While FTP - Exit Status: ${header.CamelExecExitValue}} ${body}"></camel:throwException>
+				</camel:when>
+				<camel:when>
+					<camel:simple>${header.REROUTE_FTP_RESULT.contains("Not logged in")}</camel:simple>
+					<camel:throwException exceptionType="java.lang.RuntimeException"
+						message="Error(Not logged in) While FTP: ${body}"></camel:throwException>
+				</camel:when>
+				<camel:when>
+					<camel:simple>${header.REROUTE_FTP_RESULT.contains("Unknown host")}</camel:simple>
+					<camel:throwException exceptionType="java.lang.RuntimeException"
+						message="Error(Unknown host) While FTP: ${body}"></camel:throwException>
+				</camel:when>
+				<camel:when>
+					<camel:simple>${header.REROUTE_FTP_RESULT.contains("Not connected.")}</camel:simple>
+					<camel:throwException exceptionType="java.lang.RuntimeException"
+						message="Error(Not connected.) While FTP: ${body}"></camel:throwException>
+				</camel:when>
+				<camel:when>
+					<camel:simple>${header.REROUTE_FTP_RESULT.contains("error")}</camel:simple>
+					<camel:throwException exceptionType="java.lang.RuntimeException"
+						message="Error While FTP: ${body}"></camel:throwException>
+				</camel:when>
+				<camel:otherwise>
+					<camel:log message="\n$$$$$$$$$$$$$$$$$$$----------File Successful Transfered------------"></camel:log>
+				</camel:otherwise>
+			</camel:choice>
+		</camel:route>
+	</camel:camelContext>
+</beans>
