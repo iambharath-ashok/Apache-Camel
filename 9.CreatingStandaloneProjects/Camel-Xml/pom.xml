@@ -7,7 +7,7 @@
 
 	<properties>
 		<env.camel.version>2.16.1</env.camel.version>
-		<env.spring.version>4.2.4.RELEASE</env.spring.version>
+		<env.spring.version>4.2.7.RELEASE</env.spring.version>
 	</properties>
 	<dependencies>
 		<!-- Camel Dependencies -->
